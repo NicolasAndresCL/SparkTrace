@@ -1,0 +1,77 @@
+# 🐍 Entorno virtual
+venv/
+.env
+.env.*
+env/
+env
+
+# 🐘 Base de datos local
+*.sqlite3
+db.sqlite3
+
+# 📦 Archivos de paquetes
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# 📸 Archivos multimedia temporales
+media/
+staticfiles/
+uploads/
+*.jpg
+*.png
+*.gif
+*.bmp
+
+# 📊 Archivos de Dash/Plotly
+sparktrace_dashboard/__pycache__/
+sparktrace_dashboard/assets/
+sparktrace_dashboard/.ipynb_checkpoints/
+
+# 🔥 PySpark y Java
+metastore_db/
+derby.log
+hs_err_pid*.log
+
+# 🧪 Testing y cobertura
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+test-results/
+junit.xml
+
+# 🧰 IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# 🚀 CI/CD y Docker
+*.log
+*.pid
+*.lock
+*.crt
+*.pem
+*.key
+*.cfg
+*.conf
+*.ini
+*.yaml
+*.yml
+
+# 📄 Documentación generada
+docs/_build/
+README_auto.md
+
+# 🧪 Archivos de pruebas
+tests/__pycache__/
+tests/mocks/__pycache__/
