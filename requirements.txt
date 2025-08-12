@@ -39,6 +39,7 @@ py4j==0.10.9.9
 Pygments==2.19.2
 pyspark==4.0.0
 pytest==8.4.1
+pytest-cov==6.2.1
 pytest-django==4.11.1
 python-dateutil==2.9.0.post0
 python-json-logger==3.3.0
