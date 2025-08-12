@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
-from products.utils.csv_loader import cargar_productos_desde_csv
-from products.services.tiendita_api import enviar_a_tiendita
+from productos.utils.csv_loader import cargar_productos_desde_csv
+from productos.services.tiendita_api import enviar_producto
 import logging
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
         for producto in productos:
             try:
-                respuesta = enviar_a_tiendita(producto)
+                respuesta = enviar_producto(producto)
                 logger.info(f"✅ Producto enviado: {producto['nombre']} → {respuesta.status_code}")
             except Exception as e:
                 logger.warning(f"❌ Error al enviar {producto['nombre']}: {str(e)}")

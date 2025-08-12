@@ -1,9 +1,8 @@
 # ⚡ SparkTrace — Backend Audit & Dashboard
 
-Backend modular en Django + FastAPI para trazabilidad de eventos, carga masiva de productos con imágenes, y visualización técnica vía Dash. Diseñado para entrevistas internacionales y despliegue multiplataforma.
+🇪🇸 SparkTrace es un backend modular para carga masiva, sincronización entre sistemas y trazabilidad reproducible. Usa Django REST Framework, comandos desacoplados, testing automatizado y documentación bilingüe. Diseñado para integrarse con proyectos como Tiendita de Marian, con enfoque en auditoría, compatibilidad internacional y presentación técnica.
 
-Modular Django + FastAPI backend for event auditing, bulk product upload with images, and technical dashboard via Dash. Built for international interviews and multiplatform deployment.
-
+🇬🇧 SparkTrace is a modular backend for bulk loading, cross-system sync, and reproducible traceability. Built with Django REST Framework, decoupled commands, automated testing, and bilingual documentation. Designed to integrate with projects like Tiendita de Marian, with focus on auditing, international compatibility, and technical presentation.
 ---
 
 ## 🧠 Características / Features
