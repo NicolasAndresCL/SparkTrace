@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Detecta la rama actual
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Define el archivo .env según la rama
+case "$branch" in
+  test)
+    cp .env.test .env
+    echo "✅ Switched to .env.test for branch 'test'"
+    ;;
+  dev)
+    cp .env.dev .env
+    echo "✅ Switched to .env.dev for branch 'dev'"
+    ;;
+  main)
+    cp .env.main .env
+    echo "✅ Switched to .env.main for branch 'main'"
+    ;;
+  *)
+    echo "⚠️ No .env file switched for branch '$branch'"
+    ;;
+esac
