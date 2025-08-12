@@ -200,7 +200,10 @@ Este proyecto mantiene un alto nivel de cobertura de pruebas para garantizar con
 All tests are designed to validate real scenarios, simulate edge cases, and ensure traceable behavior across modules.
 
 Todas las pruebas están diseñadas para validar escenarios reales, simular casos límite y asegurar comportamiento trazable entre módulos.
-
+```
+![Tests](https://github.com/NicolasAndresCL/SparkTrace/actions/workflows/test.yml/badge.svg)
+[![Coverage](https://codecov.io/gh/NicolasAndresCL/SparkTrace/branch/main/graph/badge.svg)](https://codecov.io/gh/NicolasAndresCL/SparkTrace)
+```
 
 ## 👨‍💻 Autor / Author
 Nicolás Andrés Cano Leal Backend Developer especializado en Django, FastAPI, auditoría y CI/CD. Backend Developer focused on Django, FastAPI, auditing and CI/CD.
