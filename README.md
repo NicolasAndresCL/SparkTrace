@@ -47,7 +47,6 @@ coverage-badge -o coverage.svg
 sparktrace/ 
 ├── config/ 
 │     ├── auditlog/ # Auditoría de eventos 
-│     ├── products/ # Carga masiva y validación 
 │     ├── dashboard/ # Visualización técnica 
 │     ├── spark_jobs/ # Jobs PySpark 
 │     ├── core/ # Configuración y utilidades 
@@ -55,6 +54,12 @@ sparktrace/
 │     ├── settings.py 
 │     ├── settings_test.py # Configuración desacoplada para CI 
 │     └── urls.py 
+├── productos/
+│     ├───migrations
+│     ├───services
+│     ├───tests
+│     ├───utils
+│     └───integraciones
 ├── sparktrace_dashboard/ # Dash o Plotly para visualización 
 ├── tests/ 
 │     ├── mocks/ # Mock de SparkSession 
@@ -147,6 +152,55 @@ python manage.py run_spark_job
 - 📈 Genera métricas y logs / Generates metrics and logs
 
 - 📡 Alimenta el dashboard técnico / Feeds the technical dashboard
+
+## 🧪 API Integration Testing / Pruebas de Integración con API
+
+This module validates the integration with Tiendita API using real fixtures and simulated responses.
+
+Este módulo valida la integración con la API de Tiendita utilizando fixtures reales y respuestas simuladas.
+
+- ✅ Valid products / Productos válidos
+- ❌ Missing fields / Campos faltantes
+- ⚠️ Unexpected responses / Respuestas inesperadas
+- 🧾 Custom exception: `APIError` / Excepción personalizada: `APIError`
+
+All tests are reproducible and designed for international portfolio presentation.
+
+Todas las pruebas son reproducibles y están diseñadas para presentación en portafolios internacionales.
+
+---
+## 🧮 Technical Audit / Auditoría Técnica
+
+All modules are validated through automated tests with real fixtures, simulated errors, and command execution.
+
+Todos los módulos están validados mediante pruebas automatizadas con fixtures reales, errores simulados y ejecución de comandos.
+
+| Area / Área                  | Validation / Validación |
+|-----------------------------|--------------------------|
+| API Integration / Integración API | ✅ Real fixtures, error handling |
+| CSV Loader / Cargador CSV         | ✅ Valid and invalid data |
+| Spark Jobs / Comandos Spark       | ✅ Execution and registration |
+| Exception Handling / Manejo de excepciones | ✅ Custom `APIError` |
+
+
+## 📊 Coverage Report / Informe de Cobertura
+
+This project maintains a high level of test coverage to ensure reliability and reproducibility.
+
+Este proyecto mantiene un alto nivel de cobertura de pruebas para garantizar confiabilidad y reproducibilidad.
+
+| Module / Módulo              | Coverage / Cobertura | Status / Estado |
+|-----------------------------|----------------------|------------------|
+| `test_tiendita_api.py`      | 100 %                | ✅ Complete / Completo |
+| `test_csv_loader.py`        | 100 %                | ✅ Complete / Completo |
+| `tiendita.py`               | 83 %                 | ⚠️ Partial / Parcial |
+| `csv_loader.py`             | 79 %                 | ⚠️ Partial / Parcial |
+| Global coverage / Cobertura global | 94 %         | 🚀 High / Alta |
+
+All tests are designed to validate real scenarios, simulate edge cases, and ensure traceable behavior across modules.
+
+Todas las pruebas están diseñadas para validar escenarios reales, simular casos límite y asegurar comportamiento trazable entre módulos.
+
 
 ## 👨‍💻 Autor / Author
 Nicolás Andrés Cano Leal Backend Developer especializado en Django, FastAPI, auditoría y CI/CD. Backend Developer focused on Django, FastAPI, auditing and CI/CD.

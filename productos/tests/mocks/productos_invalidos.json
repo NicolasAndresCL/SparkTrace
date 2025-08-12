@@ -1,0 +1,15 @@
+[
+  {
+    "nombre": "Pelota",
+    "descripcion": "Juguete",
+    "stock": 10,
+    "image": "pelota.jpg"
+  },
+  {
+    "nombre": "",
+    "descripcion": "Sin nombre",
+    "precio": 1990,
+    "stock": 0,
+    "image": "sin_nombre.jpg"
+  }
+]

@@ -23,11 +23,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'drf_spectacular_sidecar',
-    'config.auditlog',
-    'config.products',
-    'config.dashboard',
-    'config.spark_jobs',
-    'config.core',
+    'productos',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,5 @@
+{
+  "error": "Campo 'precio' faltante",
+  "status": "error",
+  "codigo": 422
+}

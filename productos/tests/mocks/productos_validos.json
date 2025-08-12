@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "Pelota",
+    "descripcion": "Juguete redondo",
+    "precio": 4990,
+    "stock": 10,
+    "image": "pelota.jpg"
+  },
+  {
+    "nombre": "Cuerda",
+    "descripcion": "Juguete para tirar",
+    "precio": 2990,
+    "stock": 5,
+    "image": "cuerda.jpg"
+  }
+]

@@ -14,6 +14,19 @@ DEBUG = env("DEBUG")
 SECRET_KEY = env("SECRET_KEY")
 ALLOWED_HOSTS = ["*"]
 
+INSTALLED_APPS = [
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "rest_framework",
+    "drf_spectacular",
+    "productos",  # 👈 Esta es clave para que se registre el comando
+    # Agrega otras apps si las usas en tests
+]
+
+
 DATABASES = {
     "default": env.db(),  
 }
