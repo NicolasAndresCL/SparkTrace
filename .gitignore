@@ -66,7 +66,7 @@ junit.xml
 *.conf
 *.ini
 *.yaml
-*.yml
+#*.yml lo comento para subir el workflows
 
 # 📄 Documentación generada
 docs/_build/
