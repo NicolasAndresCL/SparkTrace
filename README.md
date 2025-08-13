@@ -212,5 +212,7 @@ Nicolás Andrés Cano Leal Backend Developer especializado en Django, FastAPI, a
 
 💼 LinkedIn: linkedin.com/in/nicolas-andres-cano-leal
 
+Email: nicolas.cano.leal@gmail.com
+
 ## 📜 Licencia / License
 Este proyecto está bajo la licencia MIT. This project is licensed under the MIT License.
