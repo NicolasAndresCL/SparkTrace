@@ -205,6 +205,23 @@ Todas las pruebas están diseñadas para validar escenarios reales, simular caso
 [![Coverage](https://codecov.io/gh/NicolasAndresCL/SparkTrace/branch/main/graph/badge.svg)](https://codecov.io/gh/NicolasAndresCL/SparkTrace)
 ```
 
+## 🚀 CI/CD Integration Achieved / Integración CI/CD Lograda
+
+This project now includes a fully operational CI pipeline with automated testing and coverage reporting.
+
+Este proyecto ahora cuenta con una pipeline CI completamente operativa, con ejecución automática de tests y reporte de cobertura.
+
+- ✅ GitHub Actions workflow configured for each push and pull request
+- ✅ Pytest runs with coverage and XML report generation
+- ✅ Codecov integration with secure token upload
+- ✅ Secrets managed via GitHub for `SECRET_KEY` and coverage authentication
+- ✅ Badges added to README for test status and coverage percentage
+
+All tests are reproducible, traceable, and validated in a clean CI environment—ready for international technical interviews.
+
+Todos los tests son reproducibles, trazables y validados en un entorno CI limpio—listos para entrevistas técnicas internacionales.
+
+
 ## 👨‍💻 Autor / Author
 Nicolás Andrés Cano Leal Backend Developer especializado en Django, FastAPI, auditoría y CI/CD. Backend Developer focused on Django, FastAPI, auditing and CI/CD.
 
