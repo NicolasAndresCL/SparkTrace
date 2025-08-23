@@ -22,8 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_spectacular",
-    "productos",  # 👈 Esta es clave para que se registre el comando
-    # Agrega otras apps si las usas en tests
+    "productos",  
 ]
 
 

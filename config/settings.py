@@ -1,6 +1,7 @@
 from pathlib import Path
 import environ
 import os
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -10,7 +11,7 @@ environ.Env.read_env(BASE_DIR / ENV_FILE)
 
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'drf_spectacular',
     'drf_spectacular_sidecar',
     'productos',
@@ -75,6 +77,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -86,14 +91,130 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'SparkTrace API',
-    'DESCRIPTION': 'Auditoría, carga masiva y visualización técnica',
+    'TITLE': "SparkTrace API – Carga Masiva para Tiendita de Marian",
+    'DESCRIPTION': (
+        """
+        Esta API permite la carga masiva, validación estructural y visualización de productos para su integración directa con la Tiendita de Marian. 
+        Incluye endpoints para registrar productos con imagen, precio y stock, y está diseñada para ser reproducible, trazable y compatible con flujos DevOps.
+        """
+    ),
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
+    'CONTACT': {
+        'name': 'Soporte de SparkTrace',
+        'email': 'nicolas.cano.leal@gmail.com',
+    },
+    'LICENSE': {
+        'name': 'Licencia MIT',
+        'url': 'https://opensource.org/licenses/MIT',
+    },
+
+
+    'SECURITY': [
+        {'BearerAuth': []},
+    ],
+    'COMPONENTS': {
+        'securitySchemes': {
+            'BearerAuth': {
+                'type': 'http',
+                'scheme': 'bearer',
+                'bearerFormat': 'JWT',
+            }
+        }
+    },
+
+    'SERVERS': [
+        {
+            'url': 'http://127.0.0.1:8000/api/',
+            'description': 'Servidor de Desarrollo Local',
+        },
+    ],
+
+    'COMPONENT_SPLIT_REQUEST': True,
+    'COMPONENT_SPLIT_PATCH': True,
+
+    'SERVE_INCLUDE_SCHEMA': False, 
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,          
+        'displayRequestDuration': True, 
+        'filter': True,               
+        'persistAuthorization': True, 
+        'syntaxHighlight.theme': 'obsidian', 
+        'displayOperationId': True,   
+    },
+
+    'TEMPLATE_DIR': 'templates/drf_spectacular_sidecar',
+    'STATIC_DIR': 'static/drf_spectacular_sidecar',
+    'REDOC_UI_SETTINGS': {
+        'pathInMiddlePanel': True,   
+        'theme': {
+            'typography': {
+                'fontFamily': '"Inter", sans-serif',
+            },
+            'colors': {
+                'primary': {
+                    'main': '#0ea5e9'
+                }
+            }
+        }
+    },
+    'SWAGGER_UI_DIST': 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@latest',
+    'REDOC_DIST': 'https://cdn.jsdelivr.net/npm/redoc@latest',
+
+    'POSTPROCESSING_HOOKS': [
+        'drf_spectacular.hooks.postprocess_schema_enums',
+    ],
+
+    'RENDERER_WHITELIST': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'AUTHENTICATION_WHITELIST': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+
+    'SORT_OPERATIONS': True,
+    'ENFORCE_NON_BLANK_FIELDS': True, 
+    'CAMELIZE_NAMES': True, 
+    'GENERATION': {
+        'operationId': True,     
+    },
+    'SHOW_EXTENSIONS': True,
 }
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'UPDATE_LAST_LOGIN': False,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+    'JWK_URL': None,
+    'LEEWAY': 0,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'USER_AUTHENTICATION_RULE': 'rest_framework_simplejwt.authentication.default_user_authentication_rule',
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+    'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models.TokenUser',
+    'JTI_CLAIM': 'jti',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=7),
+}
+
 
 if ENV_FILE == '.env.test':
     EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
